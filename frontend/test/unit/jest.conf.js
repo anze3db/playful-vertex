@@ -17,7 +17,7 @@ module.exports = {
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFiles: ['<rootDir>/test/unit/setup'],
   mapCoverage: true,
-  coverageDirectory: '$CIRCLE_TEST_REPORTS',
+  coverageDirectory: process.env.CI ? '$CIRCLE_TEST_REPORTS' : '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
     '!src/App.vue',
