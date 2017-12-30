@@ -6,6 +6,6 @@ import store from '@/store'
 describe('Index.vue', () => {
   it('should render correct contents', () => {
     const wrapper = mount(Index, {store})
-    expect(wrapper.find('h1').text()).toEqual('Hello')
+    expect(wrapper.find('h1').text()).toEqual('Playful Vertex')
   })
 })
