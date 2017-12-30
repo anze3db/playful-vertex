@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Hello</h1>
+      <h1>Playful Vertex</h1>
       <ObjectForm></ObjectForm>
       <ObjectList></ObjectList>
   </div>
