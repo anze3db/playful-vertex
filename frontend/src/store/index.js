@@ -15,20 +15,15 @@ function uuidv4 () {
 
 export default new Vuex.Store({
   state: {
-    count: 0,
     objects: {}
   },
   mutations: {
-    increment (state) {
-      state.count++
-    },
     add_object (state, object) {
       Vue.set(state.objects, uuidv4(), object)
       state.count++
     }
   },
   getters: {
-    objects: state => state.objects,
-    count: state => state.count
+    objects: state => state.objects
   }
 })

@@ -1,11 +1,6 @@
 import store from '@/store/index'
 
 describe('store.js', () => {
-  it('does something', () => {
-    expect(store.state.count).toEqual(0)
-    store.commit('increment')
-    expect(store.getters.count).toEqual(1)
-  })
   it('starts up with no objects', () => {
     expect(store.state.objects).toEqual({})
   })
