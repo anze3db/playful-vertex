@@ -6,13 +6,13 @@ import store from '@/store'
 describe('ObjectList.vue', () => {
   it('should render correct contents', () => {
     const wrapper = mount(ObjectList, {store})
-    expect(wrapper.is('ul')).toEqual(true)
+    expect(wrapper.contains('v-list')).toEqual(true)
   })
   it('lists all the items in the store', () => {
     store.commit('add_object', {description: 'first', title: 'first'})
     store.commit('add_object', {description: 'second', title: 'second'})
     const wrapper = mount(ObjectList, {store})
-    expect(wrapper.is('ul')).toEqual(true)
-    expect(wrapper.findAll('li').length).toEqual(2)
+    expect(wrapper.contains('v-list')).toEqual(true)
+    expect(wrapper.findAll('v-list-tile').length).toEqual(2)
   })
 })
