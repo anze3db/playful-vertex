@@ -2,9 +2,7 @@
   <v-container grid-list-md text-xs-center>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-text-field v-model="title" label="Title"></v-text-field><br>
-        <v-text-field multi-line v-model="description" label="Description"></v-text-field>
-        <br>
+        <v-text-field v-model="content" label="Content"></v-text-field><br>
         <v-btn color="info" v-on:click="submit" name="submit">Submit</v-btn>
       </v-flex>
     </v-layout>
@@ -16,20 +14,17 @@ export default {
   name: 'ObjectForm',
   methods: {
     submit: function (event) {
-      if (this.title) {
+      if (this.content) {
         this.$store.commit('add_object', {
-          title: this.title,
-          description: this.description
+          content: this.content
         })
-        this.title = ''
-        this.description = ''
+        this.content = ''
       }
     }
   },
   data: () => {
     return {
-      title: '',
-      description: ''
+      content: ''
     }
   }
 }
