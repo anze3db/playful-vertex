@@ -19,8 +19,11 @@ export default new Vuex.Store({
   },
   mutations: {
     add_object (state, object) {
-      Vue.set(state.objects, uuidv4(), object)
-      state.count++
+      Vue.set(state.objects, uuidv4(), {
+        ...object,
+        created_at: new Date(),
+        updated_at: null
+      })
     }
   },
   getters: {
