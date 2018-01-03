@@ -1,20 +1,24 @@
 <template>
-  <v-container grid-list-md text-xs-center>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <v-list two-line>
-          <template v-for="(item, key) in objects">
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title v-html="item.content"></v-list-tile-title>
-                <v-list-tile-sub-title v-html="item.created_at"></v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </template>
-        </v-list>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    <v-container grid-list-md text-xs-right>
+      <v-layout row wrap>
+        <v-flex xs12
+          v-for="(item, key) in objects"
+          :key="key"
+        >
+          <v-card>
+            <v-card-title primary-title>
+              <h1 class="headline" label="content">{{item.content}}</h1>
+            </v-card-title>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>delete</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </v-container>
 </template>
 
 <script>
