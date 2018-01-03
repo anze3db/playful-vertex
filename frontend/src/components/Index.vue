@@ -1,8 +1,8 @@
 <template>
   <div>
-      <NavBar></NavBar>
-      <ObjectList></ObjectList>
-      <ObjectForm></ObjectForm>      
+    <NavBar></NavBar>
+    <ObjectList></ObjectList>
+    <ObjectForm></ObjectForm>
   </div>
 
 </template>
