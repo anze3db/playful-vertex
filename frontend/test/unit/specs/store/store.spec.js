@@ -13,4 +13,14 @@ describe('store.js', () => {
       expect(object.created_at).toBeInstanceOf(Date)
     }
   })
+
+  it('removes item from cache', () => {
+    store.commit('add_object', {content: 'Hello World 1'})
+    store.commit('add_object', {content: 'Hello World 2'})
+    for (const key in store.state.objects) {
+      store.commit('remove_object', key)
+      const object = store.getters.objects[key];
+      expect(object).toBeUndefined()
+    }
+  })
 })

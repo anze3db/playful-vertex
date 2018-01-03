@@ -24,6 +24,9 @@ export default new Vuex.Store({
         created_at: new Date(),
         updated_at: null
       })
+    },
+    remove_object (state, id) {
+      Vue.delete(state.objects, id)
     }
   },
   getters: {
