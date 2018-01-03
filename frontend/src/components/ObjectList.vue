@@ -11,7 +11,7 @@
             </v-card-title>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn icon>
+              <v-btn icon label=delete @click="deleteObject(key)">
                 <v-icon>delete</v-icon>
               </v-btn>
             </v-card-actions>
@@ -27,6 +27,11 @@ export default {
   name: 'ObjectList',
   computed: {
     ...mapGetters(['objects', 'count'])
+  },
+  methods: {
+    deleteObject: function (key) {
+      this.$store.commit('remove_object', key)
+    }
   }
 }
 </script>
