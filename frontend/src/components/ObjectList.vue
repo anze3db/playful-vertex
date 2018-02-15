@@ -14,6 +14,7 @@
               <v-btn icon label=delete @click="deleteObject(key)">
                 <v-icon>delete</v-icon>
               </v-btn>
+              <ObjectMapper></ObjectMapper>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -23,8 +24,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import ObjectMapper from '@/components/ObjectMapper'
 export default {
   name: 'ObjectList',
+  components: {
+    ObjectMapper
+  },
   computed: {
     ...mapGetters(['objects', 'count'])
   },
