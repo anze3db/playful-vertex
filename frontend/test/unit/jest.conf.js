@@ -22,6 +22,7 @@ module.exports = {
     'src/**/*.{js,vue}',
     '!src/App.vue',
     '!src/main.js',
+    '!src/firebase/index.js',
     '!src/router/index.js',
     '!**/node_modules/**'
   ],

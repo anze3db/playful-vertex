@@ -14,3 +14,6 @@ junit.xml
 *.ntvs*
 *.njsproj
 *.sln
+
+# Config files:
+config/firebase.env.js
