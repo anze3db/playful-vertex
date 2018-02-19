@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import { mount } from 'vue-test-utils'
-import ObjectMapper from '@/components/ObjectMapper'
+import ObjectMapper from '@/components/object/ObjectMapper'
 import store from '@/store'
-import sinon from 'sinon'
 
 describe('ObjectMapper.vue', () => {
   beforeEach(() => {
@@ -20,11 +19,11 @@ describe('ObjectMapper.vue', () => {
 
   it('v-select calls add', () => {
     const wrapper = mount(ObjectMapper, {store})
-    const stub = sinon.stub()
+    const stub = jest.fn()
     let select = wrapper.find('v-select')
     wrapper.setMethods({ add: stub })
     select.trigger('change')
-    expect(stub.called).toBe(true)
+    expect(stub.mock.calls).toHaveLength(1)
   })
 
   it('add does something', () => {

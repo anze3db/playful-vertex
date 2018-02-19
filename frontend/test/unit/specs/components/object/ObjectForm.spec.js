@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mount } from 'vue-test-utils'
-import ObjectForm from '@/components/ObjectForm'
+import ObjectForm from '@/components/object/ObjectForm'
 import store from '@/store'
 
 describe('Form.vue', () => {
