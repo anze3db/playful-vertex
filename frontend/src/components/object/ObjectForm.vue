@@ -15,7 +15,7 @@ export default {
   methods: {
     submit: function (event) {
       if (this.content) {
-        this.$store.commit('add_object', {
+        this.$store.commit('addObject', {
           content: this.content
         })
         this.content = ''
