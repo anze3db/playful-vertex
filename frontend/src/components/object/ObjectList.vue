@@ -24,7 +24,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ObjectMapper from '@/components/ObjectMapper'
+import ObjectMapper from '@/components/object/ObjectMapper'
 export default {
   name: 'ObjectList',
   components: {

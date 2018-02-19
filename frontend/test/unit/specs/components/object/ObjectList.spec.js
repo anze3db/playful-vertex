@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mount } from 'vue-test-utils'
-import ObjectList from '@/components/ObjectList'
+import ObjectList from '@/components/object/ObjectList'
 import store from '@/store'
 
 describe('ObjectList.vue', () => {
