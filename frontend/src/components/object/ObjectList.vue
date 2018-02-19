@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     deleteObject: function (key) {
-      this.$store.commit('remove_object', key)
+      this.$store.commit('removeObject', key)
     }
   }
 }

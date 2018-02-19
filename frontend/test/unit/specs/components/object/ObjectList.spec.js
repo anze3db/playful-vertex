@@ -11,8 +11,8 @@ describe('ObjectList.vue', () => {
     const wrapper = mount(ObjectList, {store})
     let items = wrapper.findAll('[label=content]')
     expect(items.length).toEqual(0)
-    store.commit('add_object', {content: 'first'})
-    store.commit('add_object', {content: 'second'})
+    store.commit('addObject', {content: 'first'})
+    store.commit('addObject', {content: 'second'})
     Vue.nextTick(() => {
       items = wrapper.findAll('[label=content]')
       expect(items.length).toEqual(2)
@@ -25,8 +25,8 @@ describe('ObjectList.vue', () => {
   })
 
   it('removes deleted items', (done) => {
-    store.commit('add_object', {content: 'first'})
-    store.commit('add_object', {content: 'second'})
+    store.commit('addObject', {content: 'first'})
+    store.commit('addObject', {content: 'second'})
     const wrapper = mount(ObjectList, {store})
     const key = Object.keys(store.state.objects)[0]
     const objectContent = store.state.objects[key].content
