@@ -85,4 +85,9 @@ jobs:
       - store_artifacts:
           path: $CIRCLE_TEST_REPORTS/
 
-
+workflows:
+  version: 2
+  test:
+    jobs:
+      - oldnode
+      - newnode
