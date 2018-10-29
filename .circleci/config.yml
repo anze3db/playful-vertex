@@ -4,10 +4,50 @@
 #
 version: 2
 jobs:
-  build:
+  oldnode:
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/playful-vertex/frontend
+
+    steps:
+      - checkout:
+          path: ~/playful-vertex/
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: npm run unit
+
+      - run: bash <(curl -s https://codecov.io/bash)
+
+      - store_test_results:
+          path: $CIRCLE_TEST_REPORTS/
+
+      - store_artifacts:
+          path: $CIRCLE_TEST_REPORTS/
+  newnode:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.12
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -49,4 +89,5 @@ workflows:
   version: 2
   build:
     jobs:
-      - build
+      - oldnode
+      - newnode
